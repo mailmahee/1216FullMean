@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Coding Dojo</title>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <!-- Font-Awesome Library -->
+        <link rel="stylesheet" href="./css/font-awesome.min.css">
+
+        <!-- Angular Framework -->
+        <script src="./angular/angular.min.js" charset="utf-8" defer></script>
+        <script src="./angular/angular-route.min.js" charset="utf-8" defer></script>
+        <!-- My Angular -->
+        <script src="./angular/master.js" charset="utf-8" defer></script>
+    </head>
+    <body ng-app='app'>
+        <div ng-controller="DashboardController">
+
+            <div ng-repeat="error in errors" ng-bind="error.message"></div>
+            <form ng-submit="create()">
+                <input type="text" name="name" placeholder="name" ng-model="newFriend.name">
+                <input type="Number" name="age" placeholder="age" ng-model="newFriend.age">
+
+                <input type="submit" value="send">
+            </form>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="friend in friends">
+                        <td ng-bind="friend.name"></td>
+                        <td ng-bind="friend.age"></td>
+                        <td><button ng-click="delete(friend)">X</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
